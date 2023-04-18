@@ -8,6 +8,6 @@
 <title>password_change</title>
 </head>
 <body>
-	<a href="${root }main/index">메인</a>
+	<a href="${root }ma/index">메인</a>
 </body>
 </html>

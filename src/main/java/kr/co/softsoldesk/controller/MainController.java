@@ -4,12 +4,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-@RequestMapping("/main")
+@RequestMapping("/ma")
 @Controller
 public class MainController {
 	
 	@GetMapping("/index")
 	public String main_index() {
-		return "main/index";
+		return "ma/index";
 	}
 }
