@@ -234,7 +234,7 @@
 					
 				</div>
 				<div class="eval_check1" >
-					<div class="eval_num">질문2</div>
+					<div class="eval_num">질의2</div>
 					<div class="eval_q">과제물의 내용과 양은 적절하였는가?</div>
 				</div>
 				<div class="eval_check">
