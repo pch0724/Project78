@@ -5,11 +5,14 @@ import org.apache.commons.dbcp2.BasicDataSource;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.mapper.MapperFactoryBean;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
+import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
@@ -26,11 +29,12 @@ import kr.co.softsoldesk.mapper.ProfessorMapper;
 import kr.co.softsoldesk.mapper.RoleMapper;
 import kr.co.softsoldesk.mapper.Std_HistioryMapper;
 import kr.co.softsoldesk.mapper.StudentMapper;
+import kr.co.softsoldesk.service.Mid_Eva_Service;
 
 @PropertySource("/WEB-INF/properties/db.properties")
 @ComponentScan("kr.co.softsoldesk.controller") // 스캔할 패키지 지정
 @ComponentScan("kr.co.softsoldesk.beans") // 스캔할 패키지 지정
-@ComponentScan("kr.co.softsoldesk.DAO") // 스캔할 패키지 지정
+@ComponentScan("kr.co.softsoldesk.dao") // 스캔할 패키지 지정
 @ComponentScan("kr.co.softsoldesk.service") // 스캔할 패키지 지정
 @EnableWebMvc // @Controller로 등록되어 있는 클래스 셋팅
 @Configuration // 일반 Bean 관리
@@ -47,6 +51,9 @@ public class ServletAppContext implements WebMvcConfigurer{
 	
 	@Value("${db.password}")
 	private String db_password;
+	
+	@Autowired
+	private Mid_Eva_Service midEvaService;
 	
 	@Override
 	public void configureViewResolvers(ViewResolverRegistry registry) {
@@ -198,6 +205,19 @@ public class ServletAppContext implements WebMvcConfigurer{
 		return factoryBean;
 	}
 	
+	//Properties와 충돌되어 오류가 발생되므로 분리하여 등록
+	@Bean
+	public static PropertySourcesPlaceholderConfigurer PropertySourcesPlaceholderConfigurer() {
+		return new PropertySourcesPlaceholderConfigurer();
+	}
+	
+	@Bean
+	public ReloadableResourceBundleMessageSource messageSource() {
+		ReloadableResourceBundleMessageSource res = new ReloadableResourceBundleMessageSource();
+		res.setBasenames("/WEB-INF/properties/error_message");
+		
+		return res;
+	}
 	
 	
 }
