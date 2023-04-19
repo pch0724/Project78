@@ -41,6 +41,11 @@ public class AcademyController {
 	public String academy_all_grade_check() {
 		return "academy/all_grade_check";
 	}
+	//전체 성적조회
+	@GetMapping("/grade_input")
+	public String academy_grade_input() {
+		return "academy/grade_input";
+	}
 	//강의평가
 	//중간 강의평가
 	@GetMapping("/mid_evaluation")

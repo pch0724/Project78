@@ -10,6 +10,12 @@ public class LoginController {
 		
 		return "login";
 	}
+
+	@GetMapping("/logout")
+	public String logout() {
+		
+		return "logout";
+	}
 	
 	@GetMapping("/password_change")
 	public String password_change() {

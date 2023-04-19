@@ -18,6 +18,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import kr.co.softsoldesk.mapper.BoardMapper;
 import kr.co.softsoldesk.mapper.ClassroomMapper;
 import kr.co.softsoldesk.mapper.DepartmentMapper;
+import kr.co.softsoldesk.mapper.EvaluationMapper;
 import kr.co.softsoldesk.mapper.GradeMapper;
 import kr.co.softsoldesk.mapper.LectureMapper;
 import kr.co.softsoldesk.mapper.MemberMapper;
@@ -25,10 +26,6 @@ import kr.co.softsoldesk.mapper.ProfessorMapper;
 import kr.co.softsoldesk.mapper.RoleMapper;
 import kr.co.softsoldesk.mapper.Std_HistioryMapper;
 import kr.co.softsoldesk.mapper.StudentMapper;
-
-
-
-
 
 @PropertySource("/WEB-INF/properties/db.properties")
 @ComponentScan("kr.co.softsoldesk.controller") // 스캔할 패키지 지정
@@ -185,6 +182,16 @@ public class ServletAppContext implements WebMvcConfigurer{
 	public MapperFactoryBean<StudentMapper> getStudentMapper(SqlSessionFactory factory) throws Exception {
 		
 		MapperFactoryBean<StudentMapper> factoryBean = new MapperFactoryBean<StudentMapper>(StudentMapper.class);
+		
+		factoryBean.setSqlSessionFactory(factory);
+		
+		return factoryBean;
+	}
+
+	@Bean
+	public MapperFactoryBean<EvaluationMapper> getEvaluationMapper(SqlSessionFactory factory) throws Exception {
+		
+		MapperFactoryBean<EvaluationMapper> factoryBean = new MapperFactoryBean<EvaluationMapper>(EvaluationMapper.class);
 		
 		factoryBean.setSqlSessionFactory(factory);
 		

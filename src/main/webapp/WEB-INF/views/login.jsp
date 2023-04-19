@@ -5,11 +5,207 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Login</title>
+<meta name="viewport" content="width=device-width, initial-sacle=1.0" />
+<title>칠팔대학교 통합시스템 로그인</title>
+<script src="js/jquery-3.6.4.min.js"></script>
+<style type="text/css">
+* {
+	padding: 0;
+	margin: 0;
+	border: none;
+}
+
+body {
+	font-size: 14px;
+	font-family: 'Roboto', sans-serif;
+}
+
+main {
+    background-image: url("${root}images/login_background2.png");
+	height: 600px;
+}
+
+.login_section{
+	position: relative;
+}
+.login-wrapper{
+	position:relative;
+	top: 150px;
+	left: 450px;
+    width: 40%;
+    height: 55%;
+    padding: 40%;
+    box-sizing: border-box;
+    font-size: 18px;
+    color: #050099;
+    background-color: #FFFFFF;
+    margin-bottom: 20px;
+    padding:5px;
+    border:none;
+}
+
+
+div > .login-wrapper {
+	 background-color:#BDBDBD;
+	 
+}
+
+.login_up {
+	display: flex;
+  	justify-content: center;
+  	align-items: center;
+	font-size: 5%;
+	padding: 1%;
+}
+
+
+
+#login-form > input{
+    width: 100%;
+    height: 30px;
+    /* padding: 0 10px; */
+    padding: 2%;
+    box-sizing: border-box;
+    margin-top: 1.35%;
+    margin-bottom: 0.5%;
+    border: 1px solid #0100FF;
+    color: #000000;
+    background-color: #FFFFFF;
+}
+ #user_id, #user_pass {
+	background-color: #C0C0C0;
+	width: 30%;
+}
+
+
+#login {
+	width: 100%;
+	height: 50%;
+	/* padding: 5px; */
+	
+	background-color:#000087;
+	
+}
+
+.lock {
+	width: 100%;
+	height: 100%;
+}
+
+
+#notice_view {
+	width:100%;
+	font-weight:bold;
+	color: #CD1039;
+	font-size: 5.5%;
+	margin-top: 1.8%;
+}
+
+#notice_go {
+	font-size: 5.5%;
+	font-weight:bold;
+	/* margin-bottom: 2.4%; */
+}
+
+
+ img {
+		width:3.5%;
+		height:5%;
+}
+ button:hover {
+        	color: #FFFFFF;
+ }
+ button {
+ 	height: 50%;
+ 	width: 50%;
+ 	padding: 5px;
+ 	color: #FFFFFF;
+ 	
+ }
+ footer {
+	background: #EAEAEA;
+	height: 120px;
+	
+	
+}
+.addr_info {
+	position: absolute;
+	left:36.5%;
+	display: flex;
+	text-align: center;
+    font-size:xx-small;
+    margin: 3.5%;
+}
+</style>
+</head>
+
+<script>
+	function check() {
+		var form = document.login-form;
+		if (!form.user_id.value) {
+			alert("아이디를 입력해 주십시오.");
+			form.user_id.focus();
+			return;
+		}
+
+		if (!form.user_pass.value) {
+			alert("비밀번호를 입력해 주십시오.");
+			form.user_pass.focus();
+			return;
+		}
+		form.action = "#";
+		form.submit();
+	}
+</script>
 </head>
 <body>
-	<a href="password_change">비번변경</a>
-	<a href="${root }ma/index">메인</a>
-
+	<main>
+		<section class="login_section">
+				<div class="login-wrapper" >
+					<div class="login_background">
+				        <div class="lock"><img src="${root}images/locker.png"/></div>
+					        <div class="logo">
+					        	<h2>Login</h2>
+					        </div>
+					        <!-- action="#" -->
+				        <form method="post"  id="login-form" name="login-form">
+				            <input type="text" id="user_id" name="userName" placeholder="생년월일">
+				            <input type="password" id="user_pass" name="userPassword" placeholder="비밀번호">
+				            <div class="login_up">
+					            <label for="remember-check">
+					                <input type="checkbox" id="remember">생년월일 저장
+								</label>
+								
+								<div>
+									<p/><a href="#" class="ps_init"><img src="${root}images/btn_next.jpg"/>비밀번호 초기화</a>
+									
+								</div>
+								<div>
+									<a href="#" class="num_selec"><img src="${root}images/btn_next.jpg" />학번/교직원번호 조회</a>
+									<a href="#" class="notice"><img src="${root}images/btn_next.jpg" />로그인/로그아웃 유의사항</a>
+								</div>
+							</div>
+							<div id="login_trans" align="center">
+								<!-- <form action="#" method="post" >
+									<input type="button" value="로그인" />
+								</form> -->
+							</div>
+							<button type="button" id="login" onclick="location.href='${root}ma/index';">로그인</button>
+							<p id="notice_view">&otimes; 신입생 학번 및 수강신청은 공지사항 게시판을 참조해 주시기 바랍니다.</p>
+							<a href="#" id="notice_go"><strong>신입생 관련 공지사항 바로가기</strong></a>
+				        </form>
+			        </div><!-- login_background -->
+		    	</div><!-- login-wrapper -->
+		   </section>
+	</main>
+		<footer >
+		<div>
+			<p class="addr_info">
+				서울캠퍼스: 02-000-0000 (우 03016) 서울시 종로구 2길 20 칠팔대학교<br>
+				천안캠퍼스: 041-000-0000(우 31066) 충청남도 천안시 동남구 칠팔대길 31 칠팔대학교<br>
+				COPYRIGHT BY CHILPAL UNIVERSITY ALL RIGHTS RESERVED
+			</p>
+			</div>
+		</footer>	
 </body>
 </html>

@@ -192,7 +192,7 @@ div.list7 {
 			</div>
 		</div>
 	</div>
-	<button class="info_modify" style="margin-left: 16.5%;">개인정보수정</button>
+	<button class="info_modify" style="margin-left: 145px;">개인정보수정</button>
 	<div class="all2">
 		<div class="info4">
 			<div class="list5">휴대폰번호</div>

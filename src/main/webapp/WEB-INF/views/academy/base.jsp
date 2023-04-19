@@ -46,6 +46,7 @@
                   <ul>
                      <li><a href="${root }academy/grade_check">금학기 성적조회</a></li>
                      <li><a href="${root }academy/all_grade_check">전체 성적조회</a></li>
+                     <li><a href="${root }academy/grade_input">성적 입력</a></li>
                   </ul>
                </div>
             </li>
@@ -55,8 +56,8 @@
                </button>
                <div>
                   <ul>
-                     <li><a href="${root }academy/mid_evaluation">중간강의평가</a></li>
-                     <li><a href="${root }academy/final_evaluation">기말강의평가</a></li>
+                     <li><a href="${root }evaluation/mid">중간강의평가</a></li>
+                     <li><a href="${root }evaluation/fin">기말강의평가</a></li>
                   </ul>
                </div>
             </li>
