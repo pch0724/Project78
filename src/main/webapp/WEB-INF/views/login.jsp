@@ -168,31 +168,12 @@ div > .login-wrapper {
 					        	<h2>Login</h2>
 					        </div>
 					        <!-- action="#" -->
-				        <form method="post"  id="login-form" name="login-form">
-				            <input type="text" id="user_id" name="userName" placeholder="생년월일">
-				            <input type="password" id="user_pass" name="userPassword" placeholder="비밀번호">
-				            <div class="login_up">
-					            <label for="remember-check">
-					                <input type="checkbox" id="remember">생년월일 저장
-								</label>
-								
-								<div>
-									<p/><a href="#" class="ps_init"><img src="${root}images/btn_next.jpg"/>비밀번호 초기화</a>
-									
-								</div>
-								<div>
-									<a href="#" class="num_selec"><img src="${root}images/btn_next.jpg" />학번/교직원번호 조회</a>
-									<a href="#" class="notice"><img src="${root}images/btn_next.jpg" />로그인/로그아웃 유의사항</a>
-								</div>
-							</div>
-							<div id="login_trans" align="center">
-								<!-- <form action="#" method="post" >
-									<input type="button" value="로그인" />
-								</form> -->
-							</div>
-							<button type="button" id="login" onclick="location.href='${root}ma/index';">로그인</button>
-							<p id="notice_view">&otimes; 신입생 학번 및 수강신청은 공지사항 게시판을 참조해 주시기 바랍니다.</p>
-							<a href="#" id="notice_go"><strong>신입생 관련 공지사항 바로가기</strong></a>
+				        <form action="academy/base.jsp" method="post" id="login-form" name="login-form" target="_blank">
+				            <input type="text" id="user_id" name="ID" placeholder="학번(단,최초가입시 전화번호 입력)">
+				            <input type="password" id="user_pass" name="Passwd" placeholder="비밀번호"> 
+				             <input class="login" type="submit" value="로그인" > </input>
+							<p id="notice_view">&otimes; 최초 가입시 id는 전화번호를 입력바랍니다</p>
+				            
 				        </form>
 			        </div><!-- login_background -->
 		    	</div><!-- login-wrapper -->
@@ -201,9 +182,7 @@ div > .login-wrapper {
 		<footer >
 		<div>
 			<p class="addr_info">
-				서울캠퍼스: 02-000-0000 (우 03016) 서울시 종로구 2길 20 칠팔대학교<br>
-				천안캠퍼스: 041-000-0000(우 31066) 충청남도 천안시 동남구 칠팔대길 31 칠팔대학교<br>
-				COPYRIGHT BY CHILPAL UNIVERSITY ALL RIGHTS RESERVED
+				
 			</p>
 			</div>
 		</footer>	
